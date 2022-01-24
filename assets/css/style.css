@@ -1,3 +1,7 @@
+:root {
+    --mainFont: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; 
+  }
+
 * {
     box-sizing: border-box;
     padding: 0;
@@ -10,7 +14,7 @@ a {
 
 header {
     padding: 20px;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-family: var(--mainFont);
     background-color: #2589bd;
     display: flex;
     flex-direction: row;
@@ -26,7 +30,7 @@ header {
         padding-top: 15px;
         margin-right: 20px;
         float: right;
-        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        font-family: var(--mainFont);
         font-size: 22px;
         list-style-type: none;
     }
@@ -43,21 +47,21 @@ header {
         align-items: center;
         flex-direction: column;
         padding-bottom:25px;
-        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        font-family: var(--mainFont);
     }
 
     .MainPrompt p{
-        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        font-family: var(--mainFont);
         text-align: center;
     }
 
 .QuizTitle{
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-family: var(--mainFont);
     color:aliceblue;
 }
 
 .highScore{
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-family: var(--mainFont);
     border: 2px solid #879fc2;
     text-align: center;
     background-color: #3160c7;
@@ -73,8 +77,12 @@ header {
     border-radius: 5px;
 }
 
+    .highScore:hover {
+        background-color: rgb(68, 137, 201);
+    }
+
 #startbutton {
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-family: var(--mainFont);
     font-size: 15px;
     margin-top: 25px;
     border: 2px solid #879fc2;
@@ -93,3 +101,24 @@ header {
     #startbutton:hover {
         background-color: rgb(68, 137, 201);
     }
+
+.quesBox{
+    display:flex;
+}
+
+.quesText{
+    font-family: var(--mainFont);
+    font-size: xx-large;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 75px;
+}
+
+.timerText{
+    font-family: var(--mainFont);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 20px;
+}
