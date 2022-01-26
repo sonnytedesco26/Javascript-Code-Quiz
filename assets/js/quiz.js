@@ -11,6 +11,8 @@ var quesBox = document.getElementById("quesBox");
 var score = 0;
 var currentQuestion = 0;
 var quizAnswers = document.getElementById("quizAnswers");
+var timeLeft = 60;
+var timeInterval = 0;
 
 var questions = [
     {
@@ -76,56 +78,21 @@ function showQuestion(questionShowing){
 function checkAnswer(userAnswer){
     if (userAnswer === questions[currentQuestion].answer){
         score += 10;
+        console.log(score);
     } else{
-        timeLeft -= 7;
+        timeLeft -= 1;
     }
     NextQuestion();
 }
 
 function NextQuestion(){
-    if(currentQuestion === questions.length){
-        endQuiz();
+    if(currentQuestion === questions.length - 1){
+        quizEnd();
     } else{
         currentQuestion++;
         showQuestion(questions[currentQuestion]);
     };
 }
-
-function startQuiz(){
-    showQuestion(questions[0]);
-    timer();
-}
-
-function storeScore(name, addedScore){
-    localStorage.setItem("scoreAdded", JSON.stringify({name, addedScore}));
-    location.replace("highscore.html");
-};
-
-function quizEnd(){
-    quizAnswers.remove();
-    var result = document.createElement("h4");
-    result.textContent = "You scored " + score;
-    
-    var userHighScore = document.createElement("p");
-    userHighScore.textContent = "Enter initials here";
-    result.appendChild(userHighScore);
-    var initials = document.createElement("input");
-    initials.setAttribute("type", "text");
-    result.appendChild(initials);
-    var saveHighScore = document.createElement("button");
-    saveHighScore.textContent(saveHighScore);
-
-};
-
-saveHighScore.addEventListener("click", function (object){
-    if (initials.value === ""){
-        window.alert("Please enter initials")
-    } else{
-        storeScore(initials.value, score)
-    }
-});
-
-var timeLeft = 60;
 
 function timer(){
     document.getElementById("timeLeft").innerText = timeLeft;
@@ -138,4 +105,42 @@ function timer(){
     }
 }
 
-function endTimer(){};
+function startQuiz(){
+    showQuestion(questions[0]);
+    timer();
+}
+
+function endTimer(){
+    clearInterval(timeInterval)
+};
+
+function quizEnd(){
+    quizAnswers.remove();
+    question.textContent = "You scored " + score;  
+    var userHighScore = document.createElement("p");
+    userHighScore.textContent = "Enter initials here";
+    question.appendChild(userHighScore);
+    var initials = document.createElement("input");
+    initials.setAttribute("type", "text");
+    question.appendChild(initials);
+    var saveHighScore = document.createElement("button");
+    saveHighScore.setAttribute("type", "button");
+    saveHighScore.textContent = "Save High Score";
+    question.appendChild(saveHighScore);
+    endTimer();
+
+    saveHighScore.addEventListener("click", function (object){
+        if (initials.value === ""){
+            window.alert("Please enter initials")
+        } else{
+            storeScore(initials.value, score)
+        }
+
+    function storeScore(name, addedScore){
+        localStorage.setItem("scoreAdded", JSON.stringify({name, addedScore}));
+        location.replace("highscore.html");
+    };
+    });
+}
+/////// HIGHSCORE SECTION
+
