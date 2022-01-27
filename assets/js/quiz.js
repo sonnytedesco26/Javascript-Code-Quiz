@@ -91,51 +91,17 @@ function quizEnd(){
     question.appendChild(saveHighScore);
     clearInterval(timeInterval);
 
+    function storeScore(name, addedScore){
+        localStorage.setItem("scoreAdded", JSON.stringify({name, addedScore}));
+        location.replace("highscore.html");
+    };
+
     saveHighScore.addEventListener("click", function (object){
+        object.preventDefault();
         if (initials.value === ""){
             window.alert("Please enter initials")
         } else{
             storeScore(initials.value, score)
         }
-
-    function storeScore(name, addedScore){
-        localStorage.setItem("scoreAdded", JSON.stringify({name, addedScore}));
-        location.replace("highscore.html");
-    };
     });
-}
-
-/////// HIGHSCORE SECTION
-
-var highScores = document.getElementById('HighScoreList');
-var clear = document.getElementById("clearButton");
-var addScore = JSON.parse(localStorage.getItem("ScoreAdded"));
-
-
-if(addScore){
-
-}
-
-
-function clearHighScores(){
-    clearButton.addEventListener("click", function(object){
-        localStorage.clear();
-        scoreArray = [];
-        highScores.textContent = "";
-    });
-}
-
-function saveScores(){
-    scoreArray.push(entry);
-    scoreArray.sort(function (a,b) {return b - a});
-    console.log(scoreArray);
-    localStorage.setItem("scoreArray", JSON.stringify(scoreArray));
-}
-
-function listScores(){
-    for (i=0;i<scoreArray.length;i++){
-        var newScore = document.createElement("p");
-        newScore.textContent = scoreArray[i].name + "     " + scoreArray[i].newScore;
-        highScores.appendChild(newScore);
-    }
 }
