@@ -1,7 +1,7 @@
 /////// HIGHSCORE SECTION
 
 var highScores = document.getElementById('HighScoreList');
-var clear = document.getElementById("clearButton");
+var clear = document.getElementById("clear");
 var addScore = JSON.parse(localStorage.getItem("scoreAdded"));
 var scoreArray = JSON.parse(localStorage.getItem("scoreArray")) || [];
 
@@ -15,17 +15,14 @@ if(addScore){
 
 
 function clearHighScores(){
-    clearButton.addEventListener("click", function(object){
         localStorage.clear();
         highScores.textContent = "";
         scoreArray = [];
-    });
-}
+    }
 
 function saveScore(entry){
     scoreArray.push(entry);
     scoreArray.sort(function (a,b) {return b.addedScore - a.addedScore});
-    console.log(scoreArray);
     localStorage.setItem("scoreArray", JSON.stringify(scoreArray));
 }
 

@@ -12,6 +12,10 @@ a {
     text-decoration: none;
 }
 
+li{
+    list-style-type: none;
+}
+
 header {
     padding: 20px;
     font-family: var(--mainFont);
