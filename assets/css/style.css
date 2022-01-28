@@ -13,7 +13,7 @@ a {
 }
 
 li{
-    list-style-type: none;
+    text-align: center;
 }
 
 header {
@@ -38,6 +38,34 @@ header {
         font-size: 22px;
         list-style-type: none;
     }
+
+button{
+    font-family: var(--mainFont);
+    font-size: 15px;
+    margin: 20px;
+    border: 2px solid #879fc2;
+    width: 155px;
+    height: 50px;
+    text-align: center;
+    background-color: #3160c7;
+    display: flex;
+    color: rgb(255, 255, 255);
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    border-radius: 5px;  
+}
+
+button:hover{
+    background-color: rgb(68, 137, 201);
+}
+
+input{
+    margin-top:20px;
+    border-radius: 5px;
+    padding:5px;
+    border-color: #3160c7;
+}
 
 .MainPrompt{
     padding: 50px 200px 200px 200px;
@@ -64,7 +92,13 @@ header {
     color:aliceblue;
 }
 
-.highScore{
+.quizBox{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.highScoreNav{
     font-family: var(--mainFont);
     border: 2px solid #879fc2;
     text-align: center;
@@ -81,9 +115,43 @@ header {
     border-radius: 5px;
 }
 
-    .highScore:hover {
+    .highScoreNav:hover {
         background-color: rgb(68, 137, 201);
     }
+
+.highScoreClear{
+    font-family: var(--mainFont);
+    border: 2px solid #879fc2;
+    text-align: center;
+    background-color: #3160c7;
+    display: flex;
+    position: relative;
+    bottom: 5px;
+    color: rgb(255, 255, 255);
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    height: 35px;
+    width: 250px;
+    border-radius: 5px;
+    position:relative;
+    top:30px;
+}
+    .highScoreClear:hover {
+        background-color: rgb(68, 137, 201);
+    }
+
+.highScoreList{
+    list-style-type: none;
+    display: flex;
+    font-family: var(--mainFont);
+    flex-direction: column;
+    align-items: center;
+}
+
+.highScoreList li{
+    padding: 10px;
+}
 
 #startbutton {
     font-family: var(--mainFont);
@@ -115,8 +183,9 @@ header {
     font-size: xx-large;
     display: flex;
     flex-direction: column;
-    align-items: center;
     padding-top: 75px;
+    text-align: center;
+    align-items: center;
 }
 
 .timerText{
