@@ -12,6 +12,7 @@ var score = 0;
 var currentQuestion = 0;
 var quizAnswers = document.getElementById("quizAnswers");
 var timeLeft = 60;
+//need to initialize timeInterval here, not in function 
 var timeInterval = 0;
 
 var questions = [
@@ -93,21 +94,27 @@ function checkAnswer(userAnswer){
 }
 
 function NextQuestion(){
+    //if  you're at the last question (-1 cause 0 index), call quiz end function
     if(currentQuestion === questions.length - 1){
         quizEnd();
     } else{
+        //otherwhise, increase question index, and display the next question
         currentQuestion++;
         showQuestion(questions[currentQuestion]);
     };
 }
 
 function timer(){
+    //connect with the time left text
     document.getElementById("timeLeft").innerText = timeLeft;
+    //take time down by one
     timeLeft--;
-    if(timeLeft <= 0){
+    //if no time left, take you to the high score page (quiz). No need to call Endquiz again, cause issues arise if it's called
+    if(timeLeft < 0){
         window.location.replace("highscore.html");
     }
     else{
+        //if there's still time left, call the timer function again, redo every 1000 milliseconds
         timeInterval = setTimeout(timer, 1000);
     }
 }
@@ -145,6 +152,7 @@ function quizEnd(){
         if (initials.value === ""){
             window.alert("Please enter initials")
         } else{
+            //if users actually put stuff into the initial box, call the store score function
             storeScore(initials.value, score)
         }
     });

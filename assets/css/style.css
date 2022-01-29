@@ -24,6 +24,7 @@ header {
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
+    flex-wrap: wrap;
 }
 
     header h1 {
@@ -44,8 +45,8 @@ button{
     font-size: 15px;
     margin: 20px;
     border: 2px solid #879fc2;
-    width: 155px;
-    height: 50px;
+    width: 180px;
+    height: 80px;
     text-align: center;
     background-color: #3160c7;
     display: flex;
@@ -90,6 +91,7 @@ input{
 .QuizTitle{
     font-family: var(--mainFont);
     color:aliceblue;
+    margin-left: 18px;
 }
 
 .quizBox{
@@ -194,4 +196,5 @@ input{
     flex-direction: column;
     align-items: center;
     padding-top: 20px;
+    font-size: 25px;
 }
