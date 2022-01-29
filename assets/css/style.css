@@ -81,6 +81,7 @@ input{
         flex-direction: column;
         padding-bottom:25px;
         font-family: var(--mainFont);
+        text-align: center;
     }
 
     .MainPrompt p{
@@ -138,6 +139,7 @@ input{
     border-radius: 5px;
     position:relative;
     top:30px;
+    margin-bottom:20px;
 }
     .highScoreClear:hover {
         background-color: rgb(68, 137, 201);
@@ -197,4 +199,16 @@ input{
     align-items: center;
     padding-top: 20px;
     font-size: 25px;
+}
+
+@media screen and (max-width: 575px) {
+    header{
+        display:flex;
+        align-items: center;
+        flex-direction: column;
+    }
+    .QuizTitle{
+        margin: 0px;
+    }
+    
 }

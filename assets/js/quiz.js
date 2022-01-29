@@ -2,10 +2,6 @@ var answerOne = document.getElementById("answerOne");
 var answerTwo = document.getElementById("answerTwo");
 var answerThree = document.getElementById("answerThree");
 var answerFour = document.getElementById("answerFour");
-var answerFive = document.getElementById("answerFive");
-var answerSix = document.getElementById("answerSix");
-var answerSeven = document.getElementById("answerSeven");
-var answerEight = document.getElementById("answerEight");
 var question = document.getElementById("ques");
 var quesBox = document.getElementById("quesBox");
 var score = 0;
@@ -63,7 +59,21 @@ loadQuiz();
 
 function loadQuiz(){
     startQuiz();
-    quizAnswers.addEventListener("click", function(object){
+    //Have to have event listeners only on the buttons, not on the entire box surrounding it
+    //Otherwise, user can click empty area in box anf not score any questions
+    answerOne.addEventListener("click", function(object){
+        var buttonClicked = object.target;
+        checkAnswer(buttonClicked.innerText);
+    });
+    answerTwo.addEventListener("click", function(object){
+        var buttonClicked = object.target;
+        checkAnswer(buttonClicked.innerText);
+    });
+    answerThree.addEventListener("click", function(object){
+        var buttonClicked = object.target;
+        checkAnswer(buttonClicked.innerText);
+    });
+    answerFour.addEventListener("click", function(object){
         var buttonClicked = object.target;
         checkAnswer(buttonClicked.innerText);
     });
@@ -98,7 +108,7 @@ function NextQuestion(){
     if(currentQuestion === questions.length - 1){
         quizEnd();
     } else{
-        //otherwhise, increase question index, and display the next question
+        //otherwhise, increase currentQuestion index, and display the next question
         currentQuestion++;
         showQuestion(questions[currentQuestion]);
     };

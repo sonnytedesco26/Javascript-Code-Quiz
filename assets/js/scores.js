@@ -1,7 +1,6 @@
 /////// HIGHSCORE SECTION
 
 var highScores = document.getElementById('HighScoreList');
-var clear = document.getElementById("clear");
 var addScore = JSON.parse(localStorage.getItem("scoreAdded"));
 //realized that if you just set it to an empty array, saveScore function working with scoreArray would screw up
 var scoreArray = JSON.parse(localStorage.getItem("scoreArray")) || [];
@@ -40,4 +39,8 @@ function listScores(){
         //displays the newly added score on the page
         highScores.appendChild(newScore);
     }
+}
+
+function takeHome(){
+    location.replace("index.html");
 }
