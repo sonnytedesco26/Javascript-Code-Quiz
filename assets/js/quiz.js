@@ -53,7 +53,7 @@ var questions = [
         answer: "Math.max(x, y)"
     }
 ];
-
+//Calls loadQuiz function when page is opened
 loadQuiz();
 
 

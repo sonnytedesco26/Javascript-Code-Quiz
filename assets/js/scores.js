@@ -4,7 +4,7 @@ var highScores = document.getElementById('HighScoreList');
 var addScore = JSON.parse(localStorage.getItem("scoreAdded"));
 //realized that if you just set it to an empty array, saveScore function working with scoreArray would screw up
 var scoreArray = JSON.parse(localStorage.getItem("scoreArray")) || [];
-//if score is added, call saveScore function and list the high scores. Once high score is in the array (saveScore function), remove it from the scoreAdded
+//if score is added, call saveScore function and list the high scores. Once high score is in the array (saveScore function), remove the scoreAddition from localStorage (NOTE: if not removed, refreshing the page will continue to put copies of latest highscore entry)
 if(addScore){
     saveScore(addScore);
     listScores();
@@ -42,5 +42,6 @@ function listScores(){
 }
 
 function takeHome(){
+    //takes user back to index page on click
     location.replace("index.html");
 }
